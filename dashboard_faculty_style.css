@@ -1,0 +1,15 @@
+/* Styling for the header */
+header {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Style for the logout link */
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
