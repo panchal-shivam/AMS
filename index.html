@@ -16,7 +16,7 @@
   padding-top: 20%; /* Maintain the square shape */
   padding-bottom: 20%;
   background-color: transparent; /* Remove background color */
-  text-align: center ;
+  text-align: center;
   border: 1px solid #000; /* Add box border */
   border-radius: 10px; /* Add box radius */
   font-size: 24px; /* Adjust the font size */
@@ -24,21 +24,37 @@
 }
 
 .counts {
-  justify-content: center;
-  align-content: center;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px; /* Add some space between the boxes and counts */
 }
 
-#presentCount {
+#presentCount, #absentCount {
   font-size: 20px;
   font-weight: bold;
-  margin-right: 20px; /* Add space between present and absent counts */
+  margin-bottom: 10px; /* Add space between counts */
 }
 
-#absentCount {
+button {
   font-size: 20px;
-  font-weight: bold;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* Style for Calculate button */
+#calculateButton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+/* Style for Submit button */
+#submitButton {
+  background-color: #008CBA;
+  color: white;
+  border: none;
 }
 
 </style>
@@ -202,6 +218,8 @@
 <div class="counts">
   <div id="presentCount">Present: 0</div>
   <div id="absentCount">Absent: 0</div>
+  <button id="calculateButton">Calculate</button>
+  <button id="submitButton">Submit</button>
 </div>
 
 <script>
@@ -236,6 +254,29 @@
         // Update the attendance status in the database
         updateAttendance(studentId, isPresent);
       });
+    });
+
+    // Click event for the Calculate button
+    const calculateButton = document.getElementById('calculateButton');
+    calculateButton.addEventListener('click', () => {
+      // Calculate the counts
+      const totalBoxes = boxes.length;
+      const presentBoxes = document.querySelectorAll('.box.present').length;
+      const absentBoxes = totalBoxes - presentBoxes;
+
+      // Update the counts display
+      const presentCount = document.getElementById('presentCount');
+      const absentCount = document.getElementById('absentCount');
+      presentCount.textContent = `Present: ${presentBoxes}`;
+      absentCount.textContent = `Absent: ${absentBoxes}`;
+    });
+
+    // Click event for the Submit button
+    const submitButton = document.getElementById('submitButton');
+    submitButton.addEventListener('click', () => {
+      // Implement your logic to submit data to the backend here
+      // You can use the present and absent counts as needed
+      console.log('Data submitted to the backend');
     });
   });
 </script>
