@@ -4,43 +4,36 @@
 <style>
 .container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Adjust the number of columns as needed */
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid with reduced minimum box size */
   gap: 10px; /* Adjust the gap between boxes */
   justify-content: center;
   align-items: center;
+  max-width: 800px; /* Limit the width of the container */
+  margin: 0 auto; /* Center the container horizontally */
 }
 
-
-
 .box {
-  width: 100%; /* Make the boxes square */
   padding-top: 20%; /* Maintain the square shape */
   padding-bottom: 20%;
   background-color: transparent; /* Remove background color */
   text-align: center ;
-  
   border: 1px solid #000; /* Add box border */
   border-radius: 10px; /* Add box radius */
+  font-size: 24px; /* Adjust the font size */
+  min-width: 80px; /* Minimum width for each box */
 }
 
-
-
-.box p {
-  font-size: 150%;
-  margin: ; /* Remove default margin for the number */
-
-}
-
-.counts{
+.counts {
   justify-content: center;
   align-content: center;
   display: flex;
+  margin-top: 20px; /* Add some space between the boxes and counts */
 }
 
 #presentCount {
   font-size: 20px;
   font-weight: bold;
-
+  margin-right: 20px; /* Add space between present and absent counts */
 }
 
 #absentCount {
@@ -49,163 +42,161 @@
 }
 
 </style>
-
 </head>
 <body>
+
 <div class="container">
+  <!-- Your boxes here -->
   <div class="box">
     <p>1</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>2</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>3</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>4</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>5</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>6</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>7</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>8</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>9</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>10</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>11</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>12</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>13</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>14</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>15</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>16</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>17</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>18</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>19</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>20</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>21</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>22</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>23</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>24</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>25</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>26</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>27</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>28</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>29</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>30</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>31</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>32</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>33</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>34</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>35</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>36</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>37</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>38</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>39</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>40</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>41</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>42</p>
   </div>
-<div class="box">
+  <div class="box">
     <p>43</p>
   </div>
-<div class="box">
-    <p>44</p
-
-</div>
-<div class="box">
-    <p>45</p
-
-</div>
-<div class="box">
-    <p>46</p
-
-</div>
-<div class="box">
-    <p>47</p
-
-</div> <div class="box">
-    <p>48</p
-
-</div> <div class="box">
-    <p>49</p
-
-</div> 
-<div class="box">
+  <div class="box">
+    <p>44</p>
+  </div>
+  <div class="box">
+    <p>45</p>
+  </div>
+  <div class="box">
+    <p>46</p>
+  </div>
+  <div class="box">
+    <p>47</p>
+  </div>
+  <div class="box">
+    <p>48</p>
+  </div>
+  <div class="box">
+    <p>49</p>
+  </div>
+  <div class="box">
     <p>50</p>
+  </div>
 </div>
 
 <div class="counts">
@@ -213,43 +204,40 @@
   <div id="absentCount">Absent: 0</div>
 </div>
 
-
 <script>
   // Sample code for updating attendance status in the database
-function updateAttendance(studentId, isPresent) {
-  // Make an API request to your server to update the database
-  // You'll need to implement this server-side logic
-  // Example: POST request to /updateAttendance with studentId and isPresent
-}
+  function updateAttendance(studentId, isPresent) {
+    // Make an API request to your server to update the database
+    // You'll need to implement this server-side logic
+    // Example: POST request to /updateAttendance with studentId and isPresent
+  }
 
-document.addEventListener('DOMContentLoaded', function () {
-  // Fetch student data from the server and create boxes dynamically
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch student data from the server and create boxes dynamically
 
-  // Attach click event listeners to the boxes
-  const boxes = document.querySelectorAll('.box');
-  boxes.forEach(box => {
-    box.addEventListener('click', () => {
-      const studentId = box.getAttribute('data-student-id');
-      const isPresent = !box.classList.contains('present'); // Toggle attendance status
+    // Attach click event listeners to the boxes
+    const boxes = document.querySelectorAll('.box');
+    boxes.forEach(box => {
+      box.addEventListener('click', () => {
+        const studentId = box.getAttribute('data-student-id');
+        const isPresent = !box.classList.contains('present'); // Toggle attendance status
 
-      // Update the box color (green for present, red for absent)
-      if (isPresent) {
-        box.style.backgroundColor = 'green';
-        box.classList.add('present');
-        box.classList.remove('absent');
-      } else {
-        box.style.backgroundColor = 'red';
-        box.classList.remove('present');
-        box.classList.add('absent');
-      }
+        // Update the box color (green for present, red for absent)
+        if (isPresent) {
+          box.style.backgroundColor = 'green';
+          box.classList.add('present');
+          box.classList.remove('absent');
+        } else {
+          box.style.backgroundColor = 'red';
+          box.classList.remove('present');
+          box.classList.add('absent');
+        }
 
-      // Update the attendance status in the database
-      updateAttendance(studentId, isPresent);
+        // Update the attendance status in the database
+        updateAttendance(studentId, isPresent);
+      });
     });
   });
-});
-
-  
 </script>
 </body>
 </html>
