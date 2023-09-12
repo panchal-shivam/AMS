@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Add a custom font from Google Fonts */
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .box {
+    background-color: transparent;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif; /* Apply the custom font */
+    font-size: 16px;
+    min-width: 160px;
+    padding: 10px;
+  }
+
+  .box img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+  .number {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .enrollment {
+    font-size: 18px;
+    color: #3498db;
+  }
+
+  .name {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Box 1 -->
+  <div class="box">
+    <div class="number">1</div>
+    <img src="student1.jpg" alt="Student 1">
+    <div class="enrollment">E12345</div>
+    <div class="name">John Doe</div>
+  </div>
+
+  <!-- Box 2 -->
+  <div class="box">
+    <div class="number">2</div>
+    <img src="student2.jpg" alt="Student 2">
+    <div class="enrollment">E67890</div>
+    <div class="name">Jane Smith</div>
+  </div>
+
+  <!-- Add more boxes as needed -->
+</div>
+
+</body>
+</html>
