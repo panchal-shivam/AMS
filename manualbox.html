@@ -1,75 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-  /* Add a custom font from Google Fonts */
-  @import url('https://fonts.googleapis.com/css?family=Roboto');
+  body {
+  font-family: 'Roboto', sans-serif;
+}
 
-  .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-  .box {
-    background-color: transparent;
-    text-align: center;
-    border: 1px solid #000;
-    border-radius: 10px;
-    font-family: 'Roboto', sans-serif; /* Apply the custom font */
-    font-size: 16px;
-    min-width: 160px;
-    padding: 10px;
-  }
+.box {
+  padding: 10px;
+  background-color: #f0f0f0;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .box img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 10px;
-    border-radius: 5px;
-  }
+.student-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .number {
-    font-size: 24px;
-    font-weight: bold;
-  }
+.student-number {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 
-  .enrollment {
-    font-size: 18px;
-    color: #3498db;
-  }
+.student-info img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
 
-  .name {
-    font-size: 16px;
-    margin-top: 10px;
-  }
+.student-name {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.student-enrollment {
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.counts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#presentCount,
+#absentCount {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+button {
+  font-size: 20px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* Style for Calculate button */
+#calculateButton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
 </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- Box 1 -->
-  <div class="box">
-    <div class="number">1</div>
-    <img src="student1.jpg" alt="Student 1">
-    <div class="enrollment">E12345</div>
-    <div class="name">John Doe</div>
-  </div>
 
-  <!-- Box 2 -->
   <div class="box">
-    <div class="number">2</div>
-    <img src="student2.jpg" alt="Student 2">
-    <div class="enrollment">E67890</div>
-    <div class="name">Jane Smith</div>
-  </div>
-
-  <!-- Add more boxes as needed -->
+    <div class="student-number">01</div>
+    <div class="student-info">
+        <img src="student2.png" alt="Student 1">
+        <p class="student-enrollment">12345</p>
+        <p class="student-name">John Doe</p>
+    </div>
 </div>
+
+
+
+<div class="counts">
+  <div id="presentCount">Present: 0</div>
+  <div id="absentCount">Absent: 5</div>
+  <button id="calculateButton">Calculate</button>
+</div>
+
+
+
+<script>
+  // JavaScript for handling attendance
+  document.addEventListener('DOMContentLoaded', function () {
+    // Attach click event listeners to the boxes
+    const boxes = document.querySelectorAll('.box');
+    boxes.forEach(box => {
+      box.addEventListener('click', () => {
+        if (!box.classList.contains('green') && !box.classList.contains('red')) {
+          // First click, change to green
+          box.style.backgroundColor = 'green';
+          box.classList.add('green');
+        } else if (box.classList.contains('green')) {
+          // Second click, change to red
+          box.style.backgroundColor = 'red';
+          box.classList.remove('green');
+          box.classList.add('red');
+        } else {
+          // Third click, reset to default (blank/white)
+          box.style.backgroundColor = '#f0f0f0';
+          box.classList.remove('red');
+        }
+      });
+    });
+
+    // Click event for the Calculate button
+    const calculateButton = document.getElementById('calculateButton');
+    calculateButton.addEventListener('click', () => {
+      // Calculate the counts
+      const totalBoxes = boxes.length;
+      const presentBoxes = document.querySelectorAll('.box.green').length;
+      const absentBoxes = totalBoxes - presentBoxes;
+
+      // Update the counts display
+      const presentCount = document.getElementById('presentCount');
+      const absentCount = document.getElementById('absentCount');
+      presentCount.textContent = `Present: ${presentBoxes}`;
+      absentCount.textContent = `Absent: ${absentBoxes}`;
+    });
+  });
+</script>
+
+
+
+
 
 </body>
 </html>
