@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
-  body {
-  font-family: 'Roboto', sans-serif;
-}
-
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -88,47 +82,65 @@ button {
 </head>
 <body>
 
-<div class="container">
-
-  <div class="box">
-    <div class="student-number">01</div>
-    <div class="student-info">
-        <img src="student2.png" alt="Student 1">
-        <p class="student-enrollment">12345</p>
-        <p class="student-name">John Doe</p>
-    </div>
-</div>
-
-
+<div class="container" id="studentContainer"></div>
 
 <div class="counts">
   <div id="presentCount">Present: 0</div>
-  <div id="absentCount">Absent: 5</div>
+  <div id="absentCount">Absent: 0</div>
   <button id="calculateButton">Calculate</button>
 </div>
-
-
 
 <script>
   // JavaScript for handling attendance
   document.addEventListener('DOMContentLoaded', function () {
+    const studentContainer = document.getElementById('studentContainer');
+
+    // Sample student data (you can replace this with your actual data)
+const students = [
+  { id: 1, name: 'Aarav Patel', enrollment: '12345', imgSrc: 'student.jpg' },
+  { id: 2, name: 'Aanya Sharma', enrollment: '54321', imgSrc: 'student.jpg' },
+  { id: 3, name: 'Advait Verma', enrollment: '67890', imgSrc: 'student.jpg' },
+  { id: 4, name: 'Anika Gupta', enrollment: '24680', imgSrc: 'student.jpg' },
+  { id: 5, name: 'Arjun Kumar', enrollment: '13579', imgSrc: 'student.jpg' },
+  { id: 6, name: 'Diya Singh', enrollment: '11111', imgSrc: 'student.jpg' },
+  { id: 7, name: 'Ishaan Mishra', enrollment: '22222', imgSrc: 'student.jpg' },
+  { id: 8, name: 'Neha Chopra', enrollment: '33333', imgSrc: 'student.jpg' },
+  { id: 9, name: 'Rohan Khanna', enrollment: '44444', imgSrc: 'student.jpg' },
+  { id: 10, name: 'Sanya Dubey', enrollment: '55555', imgSrc: 'student.jpg' }
+];
+
+
+
+    students.forEach(student => {
+      const box = document.createElement('div');
+      box.classList.add('box');
+      box.dataset.studentId = student.id;
+      box.innerHTML = `
+        <div class="student-number">${student.id}</div>
+        <div class="student-info">
+          <img src="${student.imgSrc}" alt="${student.name}">
+          <p class="student-enrollment">Enrollment: ${student.enrollment}</p>
+          <p class="student-name">Name: ${student.name}</p>
+        </div>
+      `;
+      studentContainer.appendChild(box);
+    });
+
     // Attach click event listeners to the boxes
     const boxes = document.querySelectorAll('.box');
     boxes.forEach(box => {
       box.addEventListener('click', () => {
-        if (!box.classList.contains('green') && !box.classList.contains('red')) {
-          // First click, change to green
+        const isPresent = !box.classList.contains('present'); // Toggle attendance status
+
+        // Update the box color (green for present, red for absent)
+        if (isPresent) {
           box.style.backgroundColor = 'green';
-          box.classList.add('green');
-        } else if (box.classList.contains('green')) {
-          // Second click, change to red
-          box.style.backgroundColor = 'red';
-          box.classList.remove('green');
-          box.classList.add('red');
+          box.classList.add('present');
+          box.classList.remove('absent');
         } else {
-          // Third click, reset to default (blank/white)
-          box.style.backgroundColor = '#f0f0f0';
-          box.classList.remove('red');
+          box.style.backgroundColor = 'red';
+          box.classList.remove('present');
+          box.classList.add('absent');
         }
       });
     });
@@ -138,7 +150,7 @@ button {
     calculateButton.addEventListener('click', () => {
       // Calculate the counts
       const totalBoxes = boxes.length;
-      const presentBoxes = document.querySelectorAll('.box.green').length;
+      const presentBoxes = document.querySelectorAll('.box.present').length;
       const absentBoxes = totalBoxes - presentBoxes;
 
       // Update the counts display
@@ -149,10 +161,6 @@ button {
     });
   });
 </script>
-
-
-
-
 
 </body>
 </html>
